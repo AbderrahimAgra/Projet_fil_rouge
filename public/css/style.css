@@ -1,0 +1,63 @@
+
+    /* Style the tab buttons */
+:root{
+    --first-color:gray;
+    --second-color:rgb(255, 198, 57);
+    --third-color:#f8f9fa;
+    --fourth-color:#545454;
+    --active-color:#ff4a59;
+
+
+}
+.tablink {
+    background-color: var(--first-color);
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+/* Change background color of buttons on hover */
+.tablink:hover {
+    background-color: var(--first-color);
+}
+
+/* Set default styles for tab content */
+.tabcontent {
+    color: #242323;
+    display: none;
+    padding: 50px;
+
+}
+
+/* Style each tab content individually */
+#objects {background-color:var(--third-color);}
+#add {background-color:var(--third-color);}
+.tap-options{
+    gap:1px;
+    display: flex;
+    justify-content: center;
+}
+.tap-options > *:nth-child(1){
+    border-top-left-radius: 15px;
+}
+.tap-options > *:last-child{
+    border-top-right-radius: 15px;
+
+}
+.tap-options > *{
+    box-shadow: 1px 1px 1px white;
+}
+img, svg {
+    vertical-align: middle;
+    width: 124px;
+}
+#btn-submit{
+    background-color:var(--second-color);
+    color: var(--third-color);
+}
+
