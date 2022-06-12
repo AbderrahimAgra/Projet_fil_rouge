@@ -1,7 +1,5 @@
- <?php
- print_r($_POST);
-
- // connect to database
+<?php
+ // connect to databas  e
     $con=new mysqli('localhost','root','','projet_fil_rouge');
 
  //loading cities list
@@ -74,6 +72,7 @@ if(isset($_POST['submit'])) {
     <!-- CSS only -->
     <link href="./public/css/bootstrap.css" rel="stylesheet" >
     <link rel="stylesheet" href="public/css/style.css">
+
     <title>homePage</title>
 
 </head>
@@ -113,10 +112,10 @@ if(isset($_POST['submit'])) {
         <button class="tablink" onclick="openCity('objects', this, '#ff4a59')">objects</button>
         <button class="tablink" onclick="openCity('add', this, 'rgb(255, 198, 57)')">add</button>
     </div>
+    <!--****************************** OBJECT ********************************-->
+
 
     <div id="objects" class="tabcontent">
-        <!--****************************** OBJECT ********************************-->
-
         <!---search--->
         <div class="container py-100">
             <div class="row">
@@ -137,8 +136,8 @@ if(isset($_POST['submit'])) {
                                         <?php }?>
 
                                     </select>
-                                </div> <!-- card-body.// -->
-                            </article> <!-- card-group-item.// -->
+                                </div>
+                            </article>
                         </div>
                         <div class="card mb-4">
                             <article class="card-group-item">
@@ -153,11 +152,13 @@ if(isset($_POST['submit'])) {
                                         <?php }?>
 
                                     </select>
-                                </div> <!-- card-body.// -->
-                            </article> <!-- card-group-item.// -->
+                                </div>
+                            </article>
                         </div>
                         <div class="card mb-4">
                             <article class="card-group-item">
+
+
                                 <div class="card-header card-header-divider">Choose type</div>
                                 <div class="card-body">
                                     <label class="form-check">
@@ -166,12 +167,14 @@ if(isset($_POST['submit'])) {
                                             All
                                         </span>
                                     </label>
+
                                     <label class="form-check">
                                         <input class="form-check-input" type="radio" name="availability" value="free">
                                         <span class="form-check-label">
                                             Free
                                         </span>
                                     </label>
+
                                     <label class="form-check">
                                         <input class="form-check-input" type="radio" name="availability" value="reserved">
                                         <span class="form-check-label">
@@ -179,50 +182,55 @@ if(isset($_POST['submit'])) {
                                         </span>
                                     </label>
 
-                                </div> <!-- card-body.// -->
-                            </article> <!-- card-group-item.// -->
-                        </div> <!-- card.// -->
+                                </div>
+                            </article>
+                        </div>
                         <button id="btn-submit" class="btn w-100">
                             Apply filter
                         </button>
                     </form>
                 </div>
-                <!-- /block category -->
+                <!-- show items -->
                 <div class="col-md-9">
-                    <div class="col-md-4 col-sm-6 mb-3">
-                        <div class="box20">
-                            <img src="assets/img/item/04.jpg" alt="">
-                            <div class="box-content">
-                                <h3 class="title">HeRa Khan</h3>
-                                <span class="post">web designer</span>
-                            </div>
-                            <ul class="icon">
-                                <li><a href="#"><i class="fa fa-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-link"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="upherakhan">
-                            <a href="#" class="uptitle"><h5>I will design 3 minimalist logo concepts with unlimited revisions</h5></a>
-                            <b class="float-left ml-4 upcat">logo design</b>
-                            <b class="float-right mr-4 upstar"><i class="fa fa-star"> 4.9</i> (91)</b>
-                            <div class="upprice">
-                                <p class="float-left ml-4"><i class="fa fa-bars"></i> <i class="fa fa-heart"></i></p>
-                                <p class="float-right mr-3"><small>Starting At</small> $55</p>
+
+                    <div class="card-group">
+                        <div class="container">
+
+                            <div class="row p-1">
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <div class="category mb-30" style="max-height: max-content">
+                                        <div class="job p-0">
+                                            <div style="background-image: url(<?= 'https://picsum.photos/350/150' ?>);background-size: cover;width: 100%;height: 8rem" alt="cover"> </div>
+                                            <div class="card-content p-1" style="display: flex; height: 10rem; flex-direction: column;justify-content: space-around">
+                                                <h5><p class="text-truncate m-0 text-wrap" href="#" style="width:100%;height:3rem;" title=" woooow">User Experience Designer Employee</p></h5>
+                                                <ul class="place" style="width: 100%;display: flex;flex-direction: row; justify-content: space-between;list-style: none">
+                                                    <li>
+                                                        <p class=" text-center"><i class="fas fa-map-marker-alt pe-2"></i>City</p>
+                                                    </li>
+                                                    <li>
+                                                        <p class="text-center mx-2"><i class="fas fa-map-marker-alt pe-2"></i>3h ago</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 d-flex align-items-center justify-content-center">
+                                    <div class="btn btn-primary mb-30">
+                                        <span>Find More</span>
+                                        <span class="fas fa-arrow-right"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
             </div>
         </div>
     </div>
 
-
-
-                    <!--****************************** FIN OBJECT ********************************-->
-    </div>
-
+    <!--****************************** FIN OBJECT ********************************-->
 
     <div id="add" class="tabcontent container">
         <form action="" class="col-md-8 offset-md-2" method="post" enctype="multipart/form-data">
@@ -289,11 +297,26 @@ if(isset($_POST['submit'])) {
     </div>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
     <script>
-        document.querySelectorAll('.tablink')[<?= $_GET['open'] ?? 0 ?>].id="defaultOpen";
+        document.querySelectorAll('.tablink')[<?= $_GET['open'] ?? 1 ?>].id="defaultOpen";
     </script>
     <script src="public/js/main.js"></script>
 
+    <script>
+
+        console.log(
+            `
+    post :
+        <?php
+                    print_r($_POST);
+                    ?>
+         get :
+         <?php
+                    print_r($_GET);
+                    ?>
+        `)
+    </script>
 </body>
 </html>
 
