@@ -11,8 +11,7 @@
  $categories=$resultCategories->fetch_all(MYSQLI_ASSOC);
     //uploading image
 if(isset($_POST['submit'])) {
-    echo "file ipload i 
-    nitaed:";
+    echo "file ipload i nitaed:";
     $target_dir = "uploads/";
     $sizeLimit=500000000;
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -70,8 +69,8 @@ if(isset($_POST['submit'])) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSS only -->
-    <link href="./public/css/bootstrap.css" rel="stylesheet" >
-    <link rel="stylesheet" href="public/css/style.css">
+    <link href="<?=BASE_URL_WITH_VIEWS?>/public/css/bootstrap.css" rel="stylesheet" >
+    <link rel="stylesheet" href="<?=BASE_URL_WITH_VIEWS?>/public/css/style.css">
 
     <title>homePage</title>
 
@@ -84,12 +83,13 @@ if(isset($_POST['submit'])) {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" id="logo" href="#">
-                <img src="public/images/logo.png" alt="logo">
+                <img src="<?=BASE_URL_WITH_VIEWS?>/public/images/logo.png" alt="logo">
             </a>
             <div class="collapse navbar-collapse flex-row-reverse justify-content-between" id="navbarTogglerDemo03">
                 <ul class="navbar-nav  mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="btn btn-outline nav-link active"  aria-current="page" href="./signin.php">Sign in </a>
+                        <a class="btn btn-outline nav-link active"  aria-current="page" href="signin.php">Sign in </a>
+
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">admin</a>
@@ -299,9 +299,9 @@ if(isset($_POST['submit'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
     <script>
-        document.querySelectorAll('.tablink')[<?= $_GET['open'] ?? 1 ?>].id="defaultOpen";
+        document.querySelectorAll('.tablink')[<?= $_GET['open'] ?? 0 ?>].id="defaultOpen";
     </script>
-    <script src="public/js/main.js"></script>
+    <script src="<?=BASE_URL_WITH_VIEWS?>/public/js/main.js"></script>
 
     <script>
 

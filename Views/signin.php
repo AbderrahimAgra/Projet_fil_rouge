@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,7 +17,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" id="logo" href="./homepage.php">
+        <a class="navbar-brand" id="logo" href="homepage.php">
             <img src="public/images/logo.png" alt="logo">
         </a>
         <div class="collapse navbar-collapse flex-row-reverse justify-content-between" id="navbarTogglerDemo03">
@@ -44,10 +43,10 @@
 <!-- fin nave-->
 <div class="container">
     <div id="add ">
-        <form action="col-md-8 offset-2" method="post" enctype="multipart/form-data>
+        <form action="" method="post" enctype="multipart/form-data>
             <div class="row ">
         <div class="d-flex justify-content-center">
-            <img  src="public/images/AJI__logo.png" alt="logo">
+            <img src="public/images/AJI__logo.png" alt="logo">
         </div>
     </div>
         <div class="d-flex justify-content-center m-5 bg-light">
@@ -56,14 +55,14 @@
         <div class="row">
             <div class="col-6 offset-3 mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
         </div>
 
         <div class="col-6 offset-3 mb-3">
             <label for="inputPassword5" class="form-label">Password</label>
-            <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+            <input type="password" id="inputPassword5" name="password" class="form-control" aria-describedby="passwordHelpBlock">
             <div id="passwordHelpBlock" class="form-text">
                 Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
             </div>
@@ -74,7 +73,7 @@
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
         <div class="col-6 offset-3 d-grid gap-2 mb-3">
-            <button type="submit" class=" btn " id="btn-submit">Submit</button>
+            <button type="submit" class=" btn " name="submit" id="btn-submit">Submit</button>
         </div>
     </form>
 </div>

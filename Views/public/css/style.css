@@ -94,7 +94,7 @@ img, svg {
         border: 1px solid transparent;
         padding: 30px 19px 25px 19px;
         border-radius: 5px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 1px;
     }
 
     .category .job:hover {
@@ -114,7 +114,7 @@ img, svg {
         background: #f27e4242;
     }
 
-    .category .job .colors2 {
+   /**/ .category .job .colors2 {
         font-weight: 800;
         color: #4294F2;
         background: rgba(66, 148, 255, 0.26);
@@ -143,7 +143,7 @@ img, svg {
         color: #4294F2;
         background: rgba(66, 148, 255, 0.26);
     }
-
+/**/
     a {
         text-decoration: none;
         font-size: 20px;

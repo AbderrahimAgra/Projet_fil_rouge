@@ -7,7 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSS only -->
-    <link href="./public/css/bootstrap.css" rel="stylesheet" >
+    <link href="public/css/bootstrap.css" rel="stylesheet" >
     <link rel="stylesheet" href="public/css/style.css">
     <title>homePage</title>
 
@@ -50,7 +50,7 @@
         <form action="col-md-8 offset-2" method="post" enctype="multipart/form-data>
             <div class="row ">
                 <div class="d-flex justify-content-center">
-                    <img  src="public/images/AJI__logo.png" alt="logo">
+                    <img src="public/images/AJI__logo.png" alt="logo">
                 </div>
             </div>
 
