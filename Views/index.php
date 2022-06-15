@@ -73,7 +73,7 @@
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
     <div class="col-6 offset-3 d-grid gap-2 mb-3">
-        <a type="button" href="<?=BASE_URL?>home" class="btn btn primary w-100 text-white text-uppercase" style="background-color: #ffc107;">
+        <a type="button" href="<?=BASE_URL?>homepage" class="btn btn primary w-100 text-white text-uppercase" style="background-color: #ffc107;">
             submit
         </a>
     </div>
