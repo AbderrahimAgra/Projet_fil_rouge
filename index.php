@@ -7,7 +7,7 @@ require_once('./app/Session.php');
 use database\Connection;
 use controllers\HomeController;
 $home = new HomeController();
-$pages = ['home','index','homepage'];
+$pages = ['home','signup','index','homepage','dasboard'];
     $page = str_replace("/PFR/",'',getRequestCleanUri());
     if ((in_array($page, $pages))) {
         $home->index($page);
