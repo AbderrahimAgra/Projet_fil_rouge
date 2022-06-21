@@ -5,21 +5,21 @@
     require_once('views/includes/header.php');
     require_once('./app/Session.php');
     use database\Connection;
-    use controllers\HomeController;
-    $home = new HomeController();
-    $pages = ['home','signup','index','homepage','dasboard'];
+
+    $pages = ['home','signup','annonce','index','homepage','dashboard','login','admin_login'];
         $page = str_replace("/PFR/",'',getRequestCleanUri());
         if ((in_array($page, $pages))) {
-            $home->index($page);
+            view($page);
         } else if($page==''){
-
-
-              $home->index('index');
+             view('index');
         }else{
-
-            include('views/includes/404.php');
+           view('includes/404');
         }
 
-        function getRequestCleanUri(){
-            return parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);
-        }
+        function getRequestCleanUri()
+        {
+            return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    }
+    function view($viewName){
+        include('views/'.$viewName.'.php');
+    }

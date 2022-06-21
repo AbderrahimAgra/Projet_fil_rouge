@@ -1,9 +1,9 @@
 <?php
-    use Controllers\Signup_Controller;
-    $signup=new Signup_Controller;
-    $signup->signup();
-
-
+use Controllers\User_Controller;
+$signupController=new User_Controller;
+if(isset($_POST['submit'])) {
+    $signupController->signup();
+}
 
 
 ?>
@@ -21,7 +21,6 @@
         <title>homePage</title>
 
     </head>
-    <div>
     <!--nav-->
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
@@ -34,7 +33,7 @@
             <div class="collapse navbar-collapse flex-row-reverse justify-content-between" id="navbarTogglerDemo03">
                 <ul class="navbar-nav  mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="signin.php">SIGN IN</a>
+                        <a class="nav-link active" aria-current="page" href="<?=BASE_URL?>index">SIGN IN</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">admin</a>
@@ -56,7 +55,7 @@
 
     <div class="container">
     <div id="add ">
-            <form  method="post" enctype="multipart/form-data>
+            <form  method="post" >
                 <div class="row ">
                     <div class="d-flex justify-content-center">
                         <img src="<?=BASE_URL_WITH_VIEWS?>/public/images/AJI__logo.png" alt="logo">
@@ -80,6 +79,12 @@
                         <input type="text" class="form-control" name="lastname" aria-describedby="lastname">
                     </div>
                 </div>
+                <div class="row ">
+                    <div class=" col-md-6 offset-md-3 mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="tel" name="phone"  class="form-control" aria-describedby="phone">
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="col-md-6 offset-md-3 mb-3">
@@ -88,17 +93,12 @@
                     </div>
                 </div>
 
-                <div class="row ">
-                    <div class=" col-md-6 offset-md-3 mb-3">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="tel" name="phone"  class="form-control" aria-describedby="phone">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3 mb-3">
+                        <label for="inputPassword5" class="form-label">Password</label>
+                        <input type="password" name="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+                        <div id="passwordHelpBlock" class="form-text"></div>
                     </div>
-                </div>
-
-                <div class="col-md-6 offset-md-3 mb-3">
-                    <label for="inputPassword5" class="form-label">Password</label>
-                    <input type="password" name="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-                    <div id="passwordHelpBlock" class="form-text"></div>
                 </div>
 
                 <div class="col-6 offset-3 mb-3 form-check">

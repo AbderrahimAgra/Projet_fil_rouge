@@ -4,7 +4,7 @@ session_start();
 include_once('Constant.php');
 include_once('./app/Redirect.php');
 
-require_once('database/connection.php');
+require_once('database/Connection.php');
 spl_autoload_register(function($className)
 {
     $path=str_replace("\\",DIRECTORY_SEPARATOR,$className);

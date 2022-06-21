@@ -1,7 +1,6 @@
 <?php
  // connect to databas  e
     $con=new mysqli('localhost','root','','projet_fil_rouge');
-
  //loading cities list
     $result=$con->query("SELECT * FROM `city`");
     $cities=$result->fetch_all(MYSQLI_ASSOC);
@@ -60,6 +59,12 @@ if(isset($_POST['submit'])) {
         }
     }
 }
+if(isset($_POST['addAnnonce']))
+{
+    $annonceController=new \Controllers\Annonce_Controller();
+    $annonceController->addAnnonce();
+}
+
     ?>
 <!doctype html>
 <html lang="en">
@@ -88,7 +93,7 @@ if(isset($_POST['submit'])) {
             <div class="collapse navbar-collapse flex-row-reverse justify-content-between" id="navbarTogglerDemo03">
                 <ul class="navbar-nav  mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="btn btn-outline nav-link active"  aria-current="page" href="signin.php">Sign in </a>
+                        <a class="btn btn-outline nav-link active"  aria-current="page" href="<?=BASE_URL?>index">Sign in </a>
 
                     </li>
                     <li class="nav-item">
@@ -282,12 +287,12 @@ if(isset($_POST['submit'])) {
                     <div class="col-sm-10 offset-sm-1">
                         <label for="exampleFormControlInput1" class="form-label">Add image</label>
 
-                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <input type="file" accept="image/*" name="fileToUpload" id="fileToUpload">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-10 offset-sm-1">
-                        <button type="submit" name="submit" id="btn-submit" class="btn  btn-lg btn-block w-100">ADD</button>
+                        <button type="submit" name="addAnnonce" id="btn-submit" class="btn  btn-lg btn-block w-100">ADD</button>
 
                     </div>
                 </div>

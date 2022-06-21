@@ -1,6 +1,9 @@
 <?php
-    $login=new \Controllers\User_Controller();
-    $login->loginClient();
+use Controllers\Object_Controller;
+
+
+
+
 ?>
 
 
@@ -47,44 +50,53 @@
 </nav>
 
 <!-- fin nave-->
-<div class="container">
-    <div id="add ">
-        <form method="POST">
-            <div class="row ">
-                <div class="d-flex justify-content-center">
-            <img src="<?=BASE_URL_WITH_VIEWS?>/public/images/AJI__logo.png" alt="logo">
-        </div>
-            </div>
-            <div class="d-flex justify-content-center m-5 bg-light">
-        <h3> LOG IN  </h3>
-    </div>
-            <div class="row">
-        <div class="col-6 offset-3 mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-    </div>
 
-            <div class="col-6 offset-3 mb-3">
-                <label for="inputPassword5" class="form-label">Password</label>
-                <input type="password" id="inputPassword5" name="password" class="form-control" aria-describedby="passwordHelpBlock">
-                <div id="passwordHelpBlock" class="form-text">
-                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+<div class="container py-100">
+    <div class="row">
+        <div class="col-md-3 " style="border: #1a1e21 solid 1px ;background-color: #bfd1ec">
+           <h1> porfile </h1>
+            <n>jkbdkfjsdbfjksdf</n>
+            sdfsdnflsdf</n>
+            sdfsdffsdssssssssssf</n>
+            sdf</n>
+            sd</n>
+            fsd</n>
+            fsdfsdf</n>sdf
+            </P>
+
+        </div>
+        <!-- show items -->
+        <div class="col-md-9">
+            <div class="card-group">
+                <div class="container">
+                    <div class="row p-1"style="border: #1a1e21 solid 1px ;background-color: #bfd1ec">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+
+                            <h1> porfile </h1>
+                            <n>jkbdkfjsdbfjksdf</n>
+                            sdfsdnflsdf</n>
+                            sdfsdffsdf</n>
+                            sdf</n>
+                            sd</n>
+                            fsddffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</n>
+                            fsdfsdf</n>sdf
+                            </P>
+
+
+
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
 
-    <div class="col-6 offset-3 mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-
-    <div class="text-center col-6 offset-3 gap-2 mb-3">
-        <input type="submit" class="btn w-100 text-center text-uppercase" id="btn-submit" name="login" value="LOGIN"></input>
-    </div>
-    </form>
     </div>
 </div>
+</div>
+
+
+
+
 <!-- fin sign in-->
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
@@ -92,4 +104,3 @@
 
 </body>
 </html>
-

@@ -1,6 +1,6 @@
 <?php
-    $login=new \Controllers\User_Controller();
-    $login->loginClient();
+    $login=new \Controllers\Admin_Controller();
+    $login->loginAdmin();
 ?>
 
 
