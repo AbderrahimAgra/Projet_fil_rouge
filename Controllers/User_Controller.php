@@ -23,33 +23,29 @@ class User_Controller
                 );
                 if(UserModel::Sign_up($data)){
                     echo 'new leader added';
-                    //Session::set('success','New Lead Added');
-                    //Redirect::to('homepage');
                 }else{
                     echo 'faied to add';
                 }
         }
 
     public function loginClient(){
-        if(isset($_POST['login'])){
+            $error=false;
+            if(isset($_POST['login'])){
             $data = array(
                 'email'=>$_POST['email'],
                 'password'=>$_POST['password']
             );
             $isLoginSuccess=UserModel::Login($data);
-            var_dump($isLoginSuccess);
             if($isLoginSuccess){
                 session_start();
+                $_SESSION['user_id']=$isLoginSuccess['id'];
                 $_SESSION['email']=$_POST['email'];
                 $_SESSION['admin']=false;
                 header('location:homepage');
-            }else{
-                echo "mot de passe erroné";
             }
+            else $error=true;
         }
-        else{
-            echo 'error from submit login';
-        }
+            return $error;
     }
 
 

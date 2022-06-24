@@ -1,6 +1,4 @@
 <?php 
-
-session_start();
 include_once('Constant.php');
 include_once('./app/Redirect.php');
 
@@ -14,6 +12,7 @@ spl_autoload_register(function($className)
         require_once($path);
     }
 });
+
 // foreach (glob('./app/controllers/*.php') as $filename)
 // {
 //     require_once($filename);

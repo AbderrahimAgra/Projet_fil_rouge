@@ -7,6 +7,7 @@ use Models\AdminModel;
 class Admin_Controller
 {
     public function loginAdmin(){
+        $error=false;
     if(isset($_POST['login'])){
         $data = array(
             'email'=>$_POST['email'],
@@ -18,13 +19,11 @@ class Admin_Controller
             $_SESSION['email']=$_POST['email'];
             $_SESSION['admin']=true;
             header('location:dashboard');
-        }else{
-            echo "mot de passe erroné";
-        }
+        }else
+            $error=true;
     }
-    else{
-        echo 'error from submit login';
-    }
+    return $error;
+
 }
 
 }
