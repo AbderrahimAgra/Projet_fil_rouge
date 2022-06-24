@@ -186,3 +186,11 @@ img, svg {
     .mb-30 {
         margin-bottom: 30px;
     }
+
+
+    .admin-list li {
+        margin: 5px 0;
+        font-size: 18px;
+        color:var(--fourth-color);
+        list-style: none !important;
+    }

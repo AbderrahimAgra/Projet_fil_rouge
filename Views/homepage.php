@@ -1,13 +1,10 @@
 <?php
- // connect to databas  e
-    $con=new mysqli('localhost','root','','projet_fil_rouge');
- //loading cities list
-    $result=$con->query("SELECT * FROM `city`");
-    $cities=$result->fetch_all(MYSQLI_ASSOC);
- //loading categories
 
- $resultCategories=$con->query("SELECT * FROM `category`");
- $categories=$resultCategories->fetch_all(MYSQLI_ASSOC);
+$annonceController=new \Controllers\Annonce_Controller();
+$cities=$annonceController->getVilles();
+ //loading categories
+ $categories=$annonceController->getCategory();
+$annonces=$annonceController->getAnnonces();
     //uploading image
 if(isset($_POST['submit'])) {
     echo "file ipload i nitaed:";
@@ -59,11 +56,6 @@ if(isset($_POST['submit'])) {
         }
     }
 }
-if(isset($_POST['addAnnonce']))
-{
-    $annonceController=new \Controllers\Annonce_Controller();
-    $annonceController->addAnnonce();
-}
 
     ?>
 <!doctype html>
@@ -111,6 +103,11 @@ if(isset($_POST['addAnnonce']))
         </div>
     </nav>
 
+    <?php if(isset($_GET['message'])){?>
+        <div class="alert alert-success">
+            <?php echo $_GET['message'] ?>
+        </div>
+    <?php }?>
     <!-- fin nave-->
 
     <div class="tap-options ">
@@ -126,7 +123,7 @@ if(isset($_POST['addAnnonce']))
             <div class="row">
                 <div class="col-md-3">
                     <!-- block category -->
-                    <form id="code_filter_1" method="post" >
+                    <form id="code_filter_1" >
                         <div class="card mb-4">
                             <article class="card-group-item">
                                 <div class="card-header card-header-divider">Location</div>
@@ -174,14 +171,14 @@ if(isset($_POST['addAnnonce']))
                                     </label>
 
                                     <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="availability" value="free">
+                                        <input class="form-check-input" type="radio" name="availability" value="1">
                                         <span class="form-check-label">
                                             Free
                                         </span>
                                     </label>
 
                                     <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="availability" value="reserved">
+                                        <input class="form-check-input" type="radio" name="availability" value="0">
                                         <span class="form-check-label">
                                             Reserved
                                         </span>
@@ -190,7 +187,7 @@ if(isset($_POST['addAnnonce']))
                                 </div>
                             </article>
                         </div>
-                        <button id="btn-submit" class="btn w-100">
+                        <button id="btn-submit" class="btn w-100" name="search">
                             Apply filter
                         </button>
                     </form>
@@ -202,24 +199,29 @@ if(isset($_POST['addAnnonce']))
                         <div class="container">
 
                             <div class="row p-1">
-                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                    <div class="category mb-30" style="max-height: max-content">
-                                        <div class="job p-0">
-                                            <div style="background-image: url(<?= 'https://picsum.photos/350/150' ?>);background-size: cover;width: 100%;height: 8rem" alt="cover"> </div>
-                                            <div class="card-content p-1" style="display: flex; height: 10rem; flex-direction: column;justify-content: space-around">
-                                                <h5><p class="text-truncate m-0 text-wrap" href="#" style="width:100%;height:3rem;" title=" woooow">User Experience Designer Employee</p></h5>
-                                                <ul class="place" style="width: 100%;display: flex;flex-direction: row; justify-content: space-between;list-style: none">
-                                                    <li>
-                                                        <p class=" text-center"><i class="fas fa-map-marker-alt pe-2"></i>City</p>
-                                                    </li>
-                                                    <li>
-                                                        <p class="text-center mx-2"><i class="fas fa-map-marker-alt pe-2"></i>3h ago</p>
-                                                    </li>
-                                                </ul>
+                                <?php
+                                foreach ($annonces as $anonce){?>
+                                    <!-- start annonce card-->
+                                    <a class="col-lg-4 col-md-6 col-sm-12" href="annonce?id=<?php echo $anonce['id'];?>">
+                                        <div class="category mb-30" style="max-height: max-content">
+                                            <div class="job p-0">
+                                                <div style="background-image: url(<?= 'https://picsum.photos/350/150' ?>);background-size: cover;width: 100%;height: 8rem" alt="cover"> </div>
+                                                <div class="card-content p-1" style="display: flex; height: 10rem; flex-direction: column;justify-content: space-around">
+                                                    <h5><p class="text-truncate m-0 text-wrap" href="#" style="width:100%;height:3rem;" title=" woooow"><?php echo $anonce['title'];?></p></h5>
+                                                    <ul class="place" style="width: 100%;display: flex;flex-direction: row; justify-content: space-between;list-style: none">
+                                                        <li>
+                                                            <p class=" text-center"><i class="fas fa-map-marker-alt pe-2"></i><?php echo $anonce['address'];?></p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="text-center mx-2"><i class="fas fa-map-marker-alt pe-2"></i><?= explode(" ",$anonce['createAt'])[0] ?></p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    </a>
+                                    <!--end annonce card-->
+                                <?php }?>
                                 <div class="col-12 d-flex align-items-center justify-content-center">
                                     <div class="btn btn-primary mb-30">
                                         <span>Find More</span>
@@ -238,13 +240,13 @@ if(isset($_POST['addAnnonce']))
     <!--****************************** FIN OBJECT ********************************-->
 
     <div id="add" class="tabcontent container">
-        <form action="" class="col-md-8 offset-md-2" method="post" enctype="multipart/form-data">
+        <form action="ajouter_annonce" class="col-md-8 offset-md-2" method="post" enctype="multipart/form-data">
             <div>
 
                 <div class="form-group row mb-3">
                     <div class="col-sm-10 offset-1">
                         <label for="category" class="form-label">Choose a category</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" name="category">
                             <option value="0" selected>Category</option>
                             <?php
                             foreach ($categories as $category){
@@ -258,20 +260,20 @@ if(isset($_POST['addAnnonce']))
                 <div class="form-group row mb-3">
                     <div class="col-sm-10 offset-sm-1">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="title" placeholder="ex: table, chair, book, fridge...">
+                        <input type="text" class="form-control" id="title" placeholder="ex: table, chair, book, fridge..." name="title">
                     </div>
                 </div>
                 <div class="form-group row mb-3">
                     <div class="col-sm-10 offset-sm-1">
                         <label for="exampleFormControlInput1" class="form-label">description</label>
-                        <textarea class="form-control" id="description"  rows="3"></textarea>
+                        <textarea class="form-control" id="description"  name="description" rows="3"></textarea>
                     </div>
                 </div>
 
                 <div class="form-group row mb-5">
                     <div class="col-sm-10 offset-1">
                         <label for="category" class="form-label">Choose a city</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" name="city">
                             <option value="0" selected>City</option>
 
                             <?php foreach ($cities as $city){?>
@@ -287,7 +289,7 @@ if(isset($_POST['addAnnonce']))
                     <div class="col-sm-10 offset-sm-1">
                         <label for="exampleFormControlInput1" class="form-label">Add image</label>
 
-                        <input type="file" accept="image/*" name="fileToUpload" id="fileToUpload">
+                        <input type="file" accept="image/*" name=image" id="fileToUpload" >
                     </div>
                 </div>
                 <div class="form-group row">

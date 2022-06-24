@@ -1,6 +1,7 @@
 <?php
-    $login=new \Controllers\Admin_Controller();
-    $login->loginAdmin();
+$login=new \Controllers\Admin_Controller();
+
+$error=$login->loginAdmin();
 ?>
 
 
@@ -27,6 +28,7 @@
             <img src="<?=BASE_URL_WITH_VIEWS?>/public/images/logo.png" alt="logo">
         </a>
         <div class="collapse navbar-collapse flex-row-reverse justify-content-between" id="navbarTogglerDemo03">
+
             <ul class="navbar-nav  mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="btn  nav-link active" aria-current="page" href="<?=BASE_URL?>signup">SIGN UP </a>
@@ -52,19 +54,28 @@
         <form method="POST">
             <div class="row ">
                 <div class="d-flex justify-content-center">
-            <img src="<?=BASE_URL_WITH_VIEWS?>/public/images/AJI__logo.png" alt="logo">
-        </div>
+                    <img src="<?=BASE_URL_WITH_VIEWS?>/public/images/AJI__logo.png" alt="logo">
+                </div>
             </div>
-            <div class="d-flex justify-content-center m-5 bg-light">
-        <h3> LOG IN  </h3>
-    </div>
+            <div class="d-flex justify-content-center mt-5 bg-light">
+                <h3> ADMIN LOG IN  </h3>
+
+            </div>
+            <div class="d-flex justify-content-center ">
+                <?php if($error){?>
+                    <div class="alert alert-danger">
+                        Invalid user name or password !
+                    </div>
+                <?php }?>
+            </div>
+
             <div class="row">
-        <div class="col-6 offset-3 mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-    </div>
+                <div class="col-6 offset-3 mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+            </div>
 
             <div class="col-6 offset-3 mb-3">
                 <label for="inputPassword5" class="form-label">Password</label>
@@ -74,15 +85,15 @@
                 </div>
             </div>
 
-    <div class="col-6 offset-3 mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
+            <div class="col-6 offset-3 mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
 
-    <div class="text-center col-6 offset-3 gap-2 mb-3">
-        <input type="submit" class="btn w-100 text-center text-uppercase" id="btn-submit" name="login" value="LOGIN"></input>
-    </div>
-    </form>
+            <div class="text-center col-6 offset-3 gap-2 mb-3">
+                <input type="submit" class="btn w-100 text-center text-uppercase" id="btn-submit" name="login" value="LOGIN"></input>
+            </div>
+        </form>
     </div>
 </div>
 <!-- fin sign in-->
